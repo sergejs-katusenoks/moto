@@ -10,7 +10,7 @@ def decode_method():
     elif sys.version_info[0] == 3:
         return base64.decodebytes
     else:
-        raise Exception("Python version is not supported") 
+        raise Exception("Python version is not supported")
 
 
 def encode_method():
@@ -19,7 +19,7 @@ def encode_method():
     elif sys.version_info[0] == 3:
         return base64.encodebytes
     else:
-        raise Exception("Python version is not supported") 
+        raise Exception("Python version is not supported")
 
 
 def compose_new_shard_iterator(stream_name, shard, shard_iterator_type, starting_sequence_number,
