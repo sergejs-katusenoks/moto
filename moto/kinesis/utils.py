@@ -4,14 +4,22 @@ import base64
 from .exceptions import InvalidArgumentError
 
 
-if sys.version_info[0] == 2:
-    encode_method = base64.encodestring
-    decode_method = base64.decodestring
-elif sys.version_info[0] == 3:
-    encode_method = base64.encodebytes
-    decode_method = base64.decodebytes
-else:
-    raise Exception("Python version is not supported")
+def decode_method():
+    if sys.version_info[0] == 2:
+        return base64.decodestring
+    elif sys.version_info[0] == 3:
+        return base64.decodebytes
+    else:
+        raise Exception("Python version is not supported") 
+
+
+def encode_method():
+    if sys.version_info[0] == 2:
+        return base64.encodestring
+    elif sys.version_info[0] == 3:
+        return base64.encodebytes
+    else:
+        raise Exception("Python version is not supported") 
 
 
 def compose_new_shard_iterator(stream_name, shard, shard_iterator_type, starting_sequence_number,

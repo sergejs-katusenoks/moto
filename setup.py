@@ -45,6 +45,11 @@ extras_require = {
     'server': ['flask'],
 }
 
+tests_require = [
+    'freezegun',
+    'sure'
+]
+
 # https://hynek.me/articles/conditional-python-dependencies/
 if int(setuptools.__version__.split(".", 1)[0]) < 18:
     if sys.version_info[0:2] < (3, 3):
@@ -70,6 +75,7 @@ setup(
     },
     packages=find_packages(exclude=("tests", "tests.*")),
     install_requires=install_requires,
+    tests_require=tests_require,
     extras_require=extras_require,
     include_package_data=True,
     license="Apache",
